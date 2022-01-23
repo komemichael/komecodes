@@ -20,8 +20,7 @@ export const NotificationBar = ({ notification, variant, action }) => {
     }, [notification, state_variant, variant, enqueueSnackbar]);
 
     return (
-        <React.Fragment>
-        </React.Fragment>
+        <></>
     );
 };
 
