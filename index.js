@@ -19,6 +19,7 @@ import { errorHandler } from './middlewares/error-handler';
 import { requireAuth } from './middlewares/require-auth';
 import { validateRequest } from './middlewares/validate-request';
 
+import NewWindow from './utilities/newwindowutil';
 import Password from './utilities/passwordutils';
 import Singleton from './utilities/singletonutils';
 import { sortArray, sortByDate, sortByTitle, reorder } from './utilities/arrayutils';
@@ -109,6 +110,7 @@ export {
 
     Password,
     Singleton,
+    NewWindow,
     sortArray,
     sortByDate,
     sortByTitle,
