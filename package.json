@@ -1,6 +1,6 @@
 {
     "name": "@komemichael/komecodes",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "kome coding packages",
     "main": "index.js",
     "scripts": {
