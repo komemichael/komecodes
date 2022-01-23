@@ -14,6 +14,11 @@ import { NotAuthorizedError } from './errors/not-authorized-error';
 import { NotFoundError } from './errors/not-found-error';
 import { RequestValidationError } from './errors/request-validation-error';
 
+import useAlert from './hooks/useAlert';
+import usePopover from './hooks/usePopover';
+import useRequest from './hooks/useRequest';
+import useShare from './hooks/useShare';
+
 import { currentUser } from './middlewares/current-user';
 import { errorHandler } from './middlewares/error-handler';
 import { requireAuth } from './middlewares/require-auth';
@@ -102,6 +107,11 @@ export {
     NotAuthorizedError,
     NotFoundError,
     RequestValidationError,
+
+    useAlert,
+    usePopover,
+    useRequest,
+    useShare,
 
     currentUser,
     errorHandler,
