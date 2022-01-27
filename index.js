@@ -1,121 +1,87 @@
-import { createController } from './src/controllers/create';
-import { deleteController } from './src/controllers/delete';
-import { controller, controllerG, controllerU } from './src/controllers/read';
-import { updateController } from './src/controllers/update';
-
-import { BadRequestError } from './src/errors/bad-request-error';
-import { CustomError } from './src/errors/custom-error';
-import { DatabaseConnectionError } from './src/errors/database-connection-error';
-import { NotAuthorizedError } from './src/errors/not-authorized-error';
-import { NotFoundError } from './src/errors/not-found-error';
-import { RequestValidationError } from './src/errors/request-validation-error';
-
-import useAlert from './src/hooks/useAlert';
-import usePopover from './src/hooks/usePopover';
-import useRequest from './src/hooks/useRequest';
-import useShare from './src/hooks/useShare';
-
-import { currentUser } from './src/middlewares/current-user';
-import { errorHandler } from './src/middlewares/error-handler';
-import { requireAuth } from './src/middlewares/require-auth';
-import { validateRequest } from './src/middlewares/validate-request';
-
-import NewWindow from './src/utilities/newwindowutil';
-import Password from './src/utilities/passwordutils';
-import Singleton from './src/utilities/singletonutils';
-import { sortArray, sortByDate, sortByTitle, reorder } from './src/utilities/arrayutils';
-import { getName, stringToColour } from './src/utilities/avatarutils';
-import { mobileCheck } from './src/utilities/browserutils';
-import { drawImageProp } from './src/utilities/canvasutils';
-import { clipBoardSelect, clipBoardCopy } from './src/utilities/clipboardutils';
-import { uploadtoCloudinary, uploadMultipleFilestoCloudinary } from './src/utilities/cloudinaryutils';
-import { debounce, throttle, getCountdownTrigger } from './src/utilities/functionutils';
-import { getItemFromStorage, storeItem, removeItemFromStorage } from './src/utilities/locstorageutils';
-import { cleanObject, isEmpty, filterObject } from './src/utilities/objectutils';
-import { loadScript } from './src/utilities/scriptutils';
-import {
-    stringtoCode,
-    truncateString,
-    truncateNumber,
-    generateRandInt,
-    createUUID,
-    isAlphaNumeric,
-    isAlphabet
-} from './src/utilities/textutils';
-import {
-    validateBio,
-    validateEmail,
-    validateFullName,
-    validatePassword,
-    validateUsername,
-    validateWebsite
-} from './src/utilities/validateutils';
-
-
-
-
-
-export {
-    createController,
-    deleteController,
-    controller,
-    controllerG,
-    controllerU,
-    updateController,
-
-    BadRequestError,
-    CustomError,
-    DatabaseConnectionError,
-    NotAuthorizedError,
-    NotFoundError,
-    RequestValidationError,
-
-    useAlert,
-    usePopover,
-    useRequest,
-    useShare,
-
-    currentUser,
-    errorHandler,
-    requireAuth,
-    validateRequest,
-
-    Password,
-    Singleton,
-    NewWindow,
-    sortArray,
-    sortByDate,
-    sortByTitle,
-    reorder,
-    getName,
-    stringToColour,
-    mobileCheck,
-    drawImageProp,
-    clipBoardSelect,
-    clipBoardCopy,
-    uploadtoCloudinary,
-    uploadMultipleFilestoCloudinary,
-    debounce,
-    throttle,
-    getCountdownTrigger,
-    getItemFromStorage,
-    storeItem,
-    removeItemFromStorage,
-    cleanObject,
-    isEmpty,
-    filterObject,
-    loadScript,
-    stringtoCode,
-    truncateString,
-    truncateNumber,
-    validateEmail,
-    generateRandInt,
-    createUUID,
-    isAlphaNumeric,
-    isAlphabet,
-    validateBio,
-    validateFullName,
-    validatePassword,
-    validateUsername,
-    validateWebsite, 
-}
+"use strict";
+exports.__esModule = true;
+exports.generateRandInt = exports.validateEmail = exports.truncateNumber = exports.truncateString = exports.stringtoCode = exports.loadScript = exports.filterObject = exports.isEmpty = exports.cleanObject = exports.removeItemFromStorage = exports.storeItem = exports.getItemFromStorage = exports.getCountdownTrigger = exports.throttle = exports.debounce = exports.uploadMultipleFilestoCloudinary = exports.uploadtoCloudinary = exports.clipBoardCopy = exports.clipBoardSelect = exports.drawImageProp = exports.mobileCheck = exports.stringToColour = exports.getName = exports.reorder = exports.sortByTitle = exports.sortByDate = exports.sortArray = exports.NewWindow = exports.Singleton = exports.Password = exports.validateRequest = exports.requireAuth = exports.errorHandler = exports.currentUser = exports.useShare = exports.useRequest = exports.usePopover = exports.useAlert = exports.RequestValidationError = exports.NotFoundError = exports.NotAuthorizedError = exports.DatabaseConnectionError = exports.CustomError = exports.BadRequestError = exports.updateController = exports.controllerU = exports.controllerG = exports.controller = exports.deleteController = exports.createController = void 0;
+exports.validateWebsite = exports.validateUsername = exports.validatePassword = exports.validateFullName = exports.validateBio = exports.isAlphabet = exports.isAlphaNumeric = exports.createUUID = void 0;
+var create_1 = require("./src/controllers/create");
+exports.createController = create_1.createController;
+var delete_1 = require("./src/controllers/delete");
+exports.deleteController = delete_1.deleteController;
+var read_1 = require("./src/controllers/read");
+exports.controller = read_1.controller;
+exports.controllerG = read_1.controllerG;
+exports.controllerU = read_1.controllerU;
+var update_1 = require("./src/controllers/update");
+exports.updateController = update_1.updateController;
+var bad_request_error_1 = require("./src/errors/bad-request-error");
+exports.BadRequestError = bad_request_error_1.BadRequestError;
+var custom_error_1 = require("./src/errors/custom-error");
+exports.CustomError = custom_error_1.CustomError;
+var database_connection_error_1 = require("./src/errors/database-connection-error");
+exports.DatabaseConnectionError = database_connection_error_1.DatabaseConnectionError;
+var not_authorized_error_1 = require("./src/errors/not-authorized-error");
+exports.NotAuthorizedError = not_authorized_error_1.NotAuthorizedError;
+var not_found_error_1 = require("./src/errors/not-found-error");
+exports.NotFoundError = not_found_error_1.NotFoundError;
+var request_validation_error_1 = require("./src/errors/request-validation-error");
+exports.RequestValidationError = request_validation_error_1.RequestValidationError;
+var current_user_1 = require("./src/middlewares/current-user");
+exports.currentUser = current_user_1.currentUser;
+var error_handler_1 = require("./src/middlewares/error-handler");
+exports.errorHandler = error_handler_1.errorHandler;
+var require_auth_1 = require("./src/middlewares/require-auth");
+exports.requireAuth = require_auth_1.requireAuth;
+var validate_request_1 = require("./src/middlewares/validate-request");
+exports.validateRequest = validate_request_1.validateRequest;
+var newwindowutil_1 = require("./src/utilities/newwindowutil");
+exports.NewWindow = newwindowutil_1["default"];
+var passwordutils_1 = require("./src/utilities/passwordutils");
+exports.Password = passwordutils_1["default"];
+var singletonutils_1 = require("./src/utilities/singletonutils");
+exports.Singleton = singletonutils_1["default"];
+var arrayutils_1 = require("./src/utilities/arrayutils");
+exports.sortArray = arrayutils_1.sortArray;
+exports.sortByDate = arrayutils_1.sortByDate;
+exports.sortByTitle = arrayutils_1.sortByTitle;
+exports.reorder = arrayutils_1.reorder;
+var avatarutils_1 = require("./src/utilities/avatarutils");
+exports.getName = avatarutils_1.getName;
+exports.stringToColour = avatarutils_1.stringToColour;
+var browserutils_1 = require("./src/utilities/browserutils");
+exports.mobileCheck = browserutils_1.mobileCheck;
+var canvasutils_1 = require("./src/utilities/canvasutils");
+exports.drawImageProp = canvasutils_1.drawImageProp;
+var clipboardutils_1 = require("./src/utilities/clipboardutils");
+exports.clipBoardSelect = clipboardutils_1.clipBoardSelect;
+exports.clipBoardCopy = clipboardutils_1.clipBoardCopy;
+var cloudinaryutils_1 = require("./src/utilities/cloudinaryutils");
+exports.uploadtoCloudinary = cloudinaryutils_1.uploadtoCloudinary;
+exports.uploadMultipleFilestoCloudinary = cloudinaryutils_1.uploadMultipleFilestoCloudinary;
+var functionutils_1 = require("./src/utilities/functionutils");
+exports.debounce = functionutils_1.debounce;
+exports.throttle = functionutils_1.throttle;
+exports.getCountdownTrigger = functionutils_1.getCountdownTrigger;
+var locstorageutils_1 = require("./src/utilities/locstorageutils");
+exports.getItemFromStorage = locstorageutils_1.getItemFromStorage;
+exports.storeItem = locstorageutils_1.storeItem;
+exports.removeItemFromStorage = locstorageutils_1.removeItemFromStorage;
+var objectutils_1 = require("./src/utilities/objectutils");
+exports.cleanObject = objectutils_1.cleanObject;
+exports.isEmpty = objectutils_1.isEmpty;
+exports.filterObject = objectutils_1.filterObject;
+var scriptutils_1 = require("./src/utilities/scriptutils");
+exports.loadScript = scriptutils_1.loadScript;
+var textutils_1 = require("./src/utilities/textutils");
+exports.stringtoCode = textutils_1.stringtoCode;
+exports.truncateString = textutils_1.truncateString;
+exports.truncateNumber = textutils_1.truncateNumber;
+exports.generateRandInt = textutils_1.generateRandInt;
+exports.createUUID = textutils_1.createUUID;
+exports.isAlphaNumeric = textutils_1.isAlphaNumeric;
+exports.isAlphabet = textutils_1.isAlphabet;
+var validateutils_1 = require("./src/utilities/validateutils");
+exports.validateBio = validateutils_1.validateBio;
+exports.validateEmail = validateutils_1.validateEmail;
+exports.validateFullName = validateutils_1.validateFullName;
+exports.validatePassword = validateutils_1.validatePassword;
+exports.validateUsername = validateutils_1.validateUsername;
+exports.validateWebsite = validateutils_1.validateWebsite;

@@ -6,3 +6,5 @@ npm version patch
 npm publish
 
 exit 0
+
+# ./bashrun.sh "update emotion"
