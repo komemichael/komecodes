@@ -53,18 +53,6 @@
         ]
     },
     "dependencies": {
-        "@emotion/cache": "^11.5.0",
-        "@emotion/react": "^11.5.0",
-        "@emotion/server": "^11.4.0",
-        "@emotion/styled": "^11.3.0",
-        "@material-ui/core": "^4.12.3",
-        "@material-ui/icons": "^4.11.2",
-        "@material-ui/lab": "^4.0.0-alpha.60",
-        "@mui/icons-material": "^5.0.5",
-        "@mui/lab": "^5.0.0-alpha.58",
-        "@mui/material": "^5.0.6",
-        "@mui/styled-engine-sc": "^5.0.4",
-        "@react-google-maps/api": "^2.5.0",
         "autosuggest-highlight": "^3.2.0",
         "body-parser": "^1.19.0",
         "cookie-session": "^1.4.0",
@@ -82,7 +70,6 @@
         "react-swipeable-views-utils": "^0.14.0",
         "socket.io": "^4.3.1",
         "socket.io-client": "^4.3.2",
-        "styled-components": "^5.3.3"
     },
     "devDependencies": {
         "@types/autosuggest-highlight": "^3.1.1",
@@ -94,9 +81,6 @@
         "@types/lodash": "^4.14.176",
         "@types/mongoose": "^5.11.97",
         "@types/node": "16.11.6",
-        "@types/react": "17.0.33",
-        "@types/react-swipeable-views": "^0.13.1",
-        "@types/react-swipeable-views-utils": "^0.13.3",
         "@types/styled-components": "^5.1.15",
         "axios": "^0.21.4",
         "babel-plugin-styled-components": "^1.13.3",

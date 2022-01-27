@@ -24,3 +24,4 @@ export const currentUser = (req: Request, res: Response, next: NextFunction) => 
     
     return next();
   };
+  
