@@ -1,5 +1,3 @@
-import { useEffect } from 'react';
-
 const useShare = ({ title, text, url }: 
     { title: string; text: string; url: string}) => {
     const shareData = { title, text, url };

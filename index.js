@@ -1,42 +1,38 @@
-import { NotificationBar, MUISnack } from './components/alerts';
-import Map from './components/map';
-import { TransitionsModal } from './components/modal';
+import { createController } from './src/controllers/create';
+import { deleteController } from './src/controllers/delete';
+import { controller, controllerG, controllerU } from './src/controllers/read';
+import { updateController } from './src/controllers/update';
 
-import { createController } from './controllers/create';
-import { deleteController } from './controllers/delete';
-import { controller, controllerG, controllerU } from './controllers/read';
-import { updateController } from './controllers/update';
+import { BadRequestError } from './src/errors/bad-request-error';
+import { CustomError } from './src/errors/custom-error';
+import { DatabaseConnectionError } from './src/errors/database-connection-error';
+import { NotAuthorizedError } from './src/errors/not-authorized-error';
+import { NotFoundError } from './src/errors/not-found-error';
+import { RequestValidationError } from './src/errors/request-validation-error';
 
-import { BadRequestError } from './errors/bad-request-error';
-import { CustomError } from './errors/custom-error';
-import { DatabaseConnectionError } from './errors/database-connection-error';
-import { NotAuthorizedError } from './errors/not-authorized-error';
-import { NotFoundError } from './errors/not-found-error';
-import { RequestValidationError } from './errors/request-validation-error';
+import useAlert from './src/hooks/useAlert';
+import usePopover from './src/hooks/usePopover';
+import useRequest from './src/hooks/useRequest';
+import useShare from './src/hooks/useShare';
 
-import useAlert from './hooks/useAlert';
-import usePopover from './hooks/usePopover';
-import useRequest from './hooks/useRequest';
-import useShare from './hooks/useShare';
+import { currentUser } from './src/middlewares/current-user';
+import { errorHandler } from './src/middlewares/error-handler';
+import { requireAuth } from './src/middlewares/require-auth';
+import { validateRequest } from './src/middlewares/validate-request';
 
-import { currentUser } from './middlewares/current-user';
-import { errorHandler } from './middlewares/error-handler';
-import { requireAuth } from './middlewares/require-auth';
-import { validateRequest } from './middlewares/validate-request';
-
-import NewWindow from './utilities/newwindowutil';
-import Password from './utilities/passwordutils';
-import Singleton from './utilities/singletonutils';
-import { sortArray, sortByDate, sortByTitle, reorder } from './utilities/arrayutils';
-import { getName, stringToColour } from './utilities/avatarutils';
-import { mobileCheck } from './utilities/browserutils';
-import { drawImageProp } from './utilities/canvasutils';
-import { clipBoardSelect, clipBoardCopy } from './utilities/clipboardutils';
-import { uploadtoCloudinary, uploadMultipleFilestoCloudinary } from './utilities/cloudinaryutils';
-import { debounce, throttle, getCountdownTrigger } from './utilities/functionutils';
-import { getItemFromStorage, storeItem, removeItemFromStorage } from './utilities/locstorageutils';
-import { cleanObject, isEmpty, filterObject } from './utilities/objectutils';
-import { loadScript } from './utilities/scriptutils';
+import NewWindow from './src/utilities/newwindowutil';
+import Password from './src/utilities/passwordutils';
+import Singleton from './src/utilities/singletonutils';
+import { sortArray, sortByDate, sortByTitle, reorder } from './src/utilities/arrayutils';
+import { getName, stringToColour } from './src/utilities/avatarutils';
+import { mobileCheck } from './src/utilities/browserutils';
+import { drawImageProp } from './src/utilities/canvasutils';
+import { clipBoardSelect, clipBoardCopy } from './src/utilities/clipboardutils';
+import { uploadtoCloudinary, uploadMultipleFilestoCloudinary } from './src/utilities/cloudinaryutils';
+import { debounce, throttle, getCountdownTrigger } from './src/utilities/functionutils';
+import { getItemFromStorage, storeItem, removeItemFromStorage } from './src/utilities/locstorageutils';
+import { cleanObject, isEmpty, filterObject } from './src/utilities/objectutils';
+import { loadScript } from './src/utilities/scriptutils';
 import {
     stringtoCode,
     truncateString,
@@ -45,7 +41,7 @@ import {
     createUUID,
     isAlphaNumeric,
     isAlphabet
-} from './utilities/textutils';
+} from './src/utilities/textutils';
 import {
     validateBio,
     validateEmail,
@@ -53,46 +49,13 @@ import {
     validatePassword,
     validateUsername,
     validateWebsite
-} from './utilities/validateutils';
+} from './src/utilities/validateutils';
 
 
 
-import {
-    StyledFab,
-    StyledTextField,
-    StyledButton,
-    StyledHR,
-    StyledIconButton,
-    StyledPaperCardPaper,
-    StyledClippy,
-    StyledAccordion,
-    StyledSpeedDial,
-    StyledImageBox
-} from './components/styledcomp';
 
-import {
-    Rotate,
-    CardSkeleton,
-    PaperCard,
-    Flex,
-    AutoComplete,
-    Swipeable,
-    ClipComponent,
-    AlignItemsList,
-    DateTimePickerUtil,
-    AccordionUtil,
-    BasicPopover,
-    FullScreenDialogUtil,
-    ImageListUtil,
-    BackdropUtil
-} from './components/styledcomp'
 
 export {
-    NotificationBar,
-    MUISnack,
-    Map,
-    TransitionsModal,
-
     createController,
     deleteController,
     controller,
@@ -154,31 +117,5 @@ export {
     validateFullName,
     validatePassword,
     validateUsername,
-    validateWebsite,
-
-
-    StyledFab,
-    StyledTextField,
-    StyledButton,
-    StyledHR,
-    StyledIconButton,
-    StyledPaperCardPaper,
-    StyledClippy,
-    StyledAccordion,
-    StyledSpeedDial,
-    StyledImageBox,
-    Rotate,
-    CardSkeleton,
-    PaperCard,
-    Flex,
-    AutoComplete,
-    Swipeable,
-    ClipComponent,
-    AlignItemsList,
-    DateTimePickerUtil,
-    AccordionUtil,
-    BasicPopover,
-    FullScreenDialogUtil,
-    ImageListUtil,
-    BackdropUtil,
+    validateWebsite, 
 }
