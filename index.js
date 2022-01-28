@@ -1,32 +1,32 @@
-import { createController } from './controllers/create';
-import { deleteController } from './controllers/delete';
-import { controller, controllerG, controllerU } from './controllers/read';
-import { updateController } from './controllers/update';
+import { createController } from './src/controllers/create.js';
+import { deleteController } from './src/controllers/delete.js';
+import { controller, controllerG, controllerU } from './src/controllers/read.js';
+import { updateController } from './src/controllers/update.js';
 
-import { BadRequestError } from './errors/bad-request-error';
-import { CustomError } from './errors/custom-error';
-import { DatabaseConnectionError } from './errors/database-connection-error';
-import { NotAuthorizedError } from './errors/not-authorized-error';
-import { NotFoundError } from './errors/not-found-error';
-import { RequestValidationError } from './errors/request-validation-error';
+import { BadRequestError } from './src/errors/bad-request-error.js';
+import { CustomError } from './src/errors/custom-error.js';
+import { DatabaseConnectionError } from './src/errors/database-connection-error.js';
+import { NotAuthorizedError } from './src/errors/not-authorized-error.js';
+import { NotFoundError } from './src/errors/not-found-error.js';
+import { RequestValidationError } from './src/errors/request-validation-error.js';
 
-import { currentUser } from './middlewares/current-user';
-import { errorHandler } from './middlewares/error-handler';
-import { requireAuth } from './middlewares/require-auth';
-import { validateRequest } from './middlewares/validate-request';
+import { currentUser } from './src/middlewares/current-user.js';
+import { errorHandler } from './src/middlewares/error-handler.js';
+import { requireAuth } from './src/middlewares/require-auth.js';
+import { validateRequest } from './src/middlewares/validate-request.js';
 
-import {Password} from './utilities/passwordutils';
-import {Singleton} from './utilities/singletonutils';
-import { sortArray, sortByDate, sortByTitle, reorder } from './utilities/arrayutils';
-import { getName, stringToColour } from './utilities/avatarutils';
-import { mobileCheck } from './utilities/browserutils';
-import { drawImageProp } from './utilities/canvasutils';
-import { clipBoardSelect, clipBoardCopy } from './utilities/clipboardutils';
-import { uploadtoCloudinary, uploadMultipleFilestoCloudinary } from './utilities/cloudinaryutils';
-import { debounce, throttle, getCountdownTrigger } from './utilities/functionutils';
-import { getItemFromStorage, storeItem, removeItemFromStorage } from './utilities/locstorageutils';
-import { cleanObject, isEmpty, filterObject } from './utilities/objectutils';
-import { loadScript } from './utilities/scriptutils';
+import {Password} from './src/utilities/passwordutils.js';
+import {Singleton} from './src/utilities/singletonutils.js';
+import { sortArray, sortByDate, sortByTitle, reorder } from './src/utilities/arrayutils.js';
+import { getName, stringToColour } from './src/utilities/avatarutils.js';
+import { mobileCheck } from './src/utilities/browserutils.js';
+import { drawImageProp } from './src/utilities/canvasutils.js';
+import { clipBoardSelect, clipBoardCopy } from './src/utilities/clipboardutils.js';
+import { uploadtoCloudinary, uploadMultipleFilestoCloudinary } from './src/utilities/cloudinaryutils.js';
+import { debounce, throttle, getCountdownTrigger } from './src/utilities/functionutils.js';
+import { getItemFromStorage, storeItem, removeItemFromStorage } from './src/utilities/locstorageutils.js';
+import { cleanObject, isEmpty } from './src/utilities/objectutils.js';
+import { loadScript } from './src/utilities/scriptutils.js';
 import {
     stringtoCode,
     truncateString,
@@ -35,7 +35,7 @@ import {
     createUUID,
     isAlphaNumeric,
     isAlphabet
-} from './utilities/textutils';
+} from './src/utilities/textutils.js';
 import {
     validateBio,
     validateEmail,
@@ -43,9 +43,7 @@ import {
     validatePassword,
     validateUsername,
     validateWebsite
-} from './utilities/validateutils';
-
-
+} from './src/utilities/validateutils.js';
 
 
 
@@ -73,7 +71,6 @@ export {
 
     Password,
     Singleton,
-    NewWindow,
     sortArray,
     sortByDate,
     sortByTitle,
@@ -94,7 +91,6 @@ export {
     removeItemFromStorage,
     cleanObject,
     isEmpty,
-    filterObject,
     loadScript,
     stringtoCode,
     truncateString,
@@ -109,30 +105,4 @@ export {
     validatePassword,
     validateUsername,
     validateWebsite,
-
-
-    StyledFab,
-    StyledTextField,
-    StyledButton,
-    StyledHR,
-    StyledIconButton,
-    StyledPaperCardPaper,
-    StyledClippy,
-    StyledAccordion,
-    StyledSpeedDial,
-    StyledImageBox,
-    Rotate,
-    CardSkeleton,
-    PaperCard,
-    Flex,
-    AutoComplete,
-    Swipeable,
-    ClipComponent,
-    AlignItemsList,
-    DateTimePickerUtil,
-    AccordionUtil,
-    BasicPopover,
-    FullScreenDialogUtil,
-    ImageListUtil,
-    BackdropUtil,
 }

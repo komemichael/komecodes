@@ -15,9 +15,8 @@ import { errorHandler } from './src/middlewares/error-handler';
 import { requireAuth } from './src/middlewares/require-auth';
 import { validateRequest } from './src/middlewares/validate-request';
 
-import NewWindow from './src/utilities/newwindowutil';
-import Password from './src/utilities/passwordutils';
-import Singleton from './src/utilities/singletonutils';
+import { Password } from './src/utilities/passwordutils';
+import { Singleton } from './src/utilities/singletonutils';
 import { sortArray, sortByDate, sortByTitle, reorder } from './src/utilities/arrayutils';
 import { getName, stringToColour } from './src/utilities/avatarutils';
 import { mobileCheck } from './src/utilities/browserutils';
@@ -26,7 +25,7 @@ import { clipBoardSelect, clipBoardCopy } from './src/utilities/clipboardutils';
 import { uploadtoCloudinary, uploadMultipleFilestoCloudinary } from './src/utilities/cloudinaryutils';
 import { debounce, throttle, getCountdownTrigger } from './src/utilities/functionutils';
 import { getItemFromStorage, storeItem, removeItemFromStorage } from './src/utilities/locstorageutils';
-import { cleanObject, isEmpty, filterObject } from './src/utilities/objectutils';
+import { cleanObject, isEmpty } from './src/utilities/objectutils';
 import { loadScript } from './src/utilities/scriptutils';
 import {
     stringtoCode,
@@ -72,7 +71,6 @@ export {
 
     Password,
     Singleton,
-    NewWindow,
     sortArray,
     sortByDate,
     sortByTitle,
@@ -93,7 +91,6 @@ export {
     removeItemFromStorage,
     cleanObject,
     isEmpty,
-    filterObject,
     loadScript,
     stringtoCode,
     truncateString,

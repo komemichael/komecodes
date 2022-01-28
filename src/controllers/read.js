@@ -1,13 +1,10 @@
-import { Request, Response } from 'express';
-import mongoose from 'mongoose';
+import { BadRequestError } from '../errors/bad-request-error.js';
+import { NotFoundError } from '../errors/not-found-error.js';
 
-import { BadRequestError } from '../errors/bad-request-error';
-import { NotFoundError } from '../errors/not-found-error';
-
-const controllerG = async (req: Request, res: Response, model: mongoose.Model<any> ) => {
+const controllerG = async (req, res, model ) => {
     const { id } = req.body;
 
-    const modelToReturn = await model.findOne({ _id: id, createdBy: req.currentUser!.id  }).populate( {
+    const modelToReturn = await model.findOne({ _id: id, createdBy: req.currentUser.id  }).populate( {
         path: 'createdBy',
         select: ['id', 'username', 'avatar'],
     });
@@ -16,7 +13,7 @@ const controllerG = async (req: Request, res: Response, model: mongoose.Model<an
     res.status(200).json({ success: modelToReturn });
 };
 
-const controllerU = async (req: Request, res: Response, model: mongoose.Model<any> ) => {
+const controllerU = async (req, res, model ) => {
     const { id } = req.body;
 
     const modelToReturn = await model.findOne({ _id: id }).populate( {
@@ -28,12 +25,12 @@ const controllerU = async (req: Request, res: Response, model: mongoose.Model<an
     res.status(200).json({ success: modelToReturn });
 };
 
-const controller = async (req: Request, res: Response, model: mongoose.Model<any> ) => {
-    const skip: number = parseInt(req.query.skip as string) || 0;
-    const limit: number = parseInt(req.query.limit as string) || 10;
+const controller = async (req, res, model ) => {
+    const skip = parseInt(req.query.skip ) || 0;
+    const limit = parseInt(req.query.limit ) || 10;
 
     try {
-        const userId = req.currentUser!.id;
+        const userId = req.currentUser.id;
         const modelToReturn = await model.find({
             where: { userId },
             include: [{ all: true, }],
@@ -46,7 +43,7 @@ const controller = async (req: Request, res: Response, model: mongoose.Model<any
         if (modelToReturn.length === 0)
             return res.status(200).json({ success: [] });
         res.status(200).json({ success: modelToReturn });
-    } catch (error: any) {
+    } catch (error) {
         throw new BadRequestError(error.message);
     }
 };

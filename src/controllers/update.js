@@ -1,8 +1,6 @@
-import { Request, Response } from 'express';
-import mongoose from 'mongoose';
-import { BadRequestError } from '../errors/bad-request-error';
+import { BadRequestError } from '../errors/bad-request-error.js';
 
-const updateController = async (req: Request, res: Response, model: mongoose.Model<any> ) => {
+const updateController = async ( req , res, model ) => {
     let { id } = req.body;
 
     const currentUser = req.currentUser;

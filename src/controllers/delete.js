@@ -1,9 +1,7 @@
-import { Request, Response } from 'express';
-import mongoose from 'mongoose';
-import { BadRequestError } from '../errors/bad-request-error';
+import { BadRequestError } from '../errors/bad-request-error.js';
 
-const deleteController = async (req: Request, res: Response, model: mongoose.Model<any>) => {
-    const existingIdentifier: string | undefined = 'id';
+const deleteController = async (req, res, model) => {
+    const existingIdentifier = 'id';
     const existing_model = await model.findOne({ [existingIdentifier]: req.body[existingIdentifier] });
 
     if (!existing_model)

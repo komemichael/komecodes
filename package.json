@@ -16,6 +16,7 @@
     ],
     "author": "Kome Michael",
     "license": "ISC",
+    "type": "module",
     "bugs": {
         "url": "https://github.com/komemichael/komecodes/issues"
     },
