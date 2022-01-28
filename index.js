@@ -15,7 +15,7 @@ import { errorHandler } from './src/middlewares/error-handler.js';
 import { requireAuth } from './src/middlewares/require-auth.js';
 import { validateRequest } from './src/middlewares/validate-request.js';
 
-import {Password} from './src/utilities/passwordutils.js';
+
 import {Singleton} from './src/utilities/singletonutils.js';
 import { sortArray, sortByDate, sortByTitle, reorder } from './src/utilities/arrayutils.js';
 import { getName, stringToColour } from './src/utilities/avatarutils.js';
@@ -69,7 +69,6 @@ export {
     requireAuth,
     validateRequest,
 
-    Password,
     Singleton,
     sortArray,
     sortByDate,
